@@ -1,0 +1,1791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M Kavya - Software Engineer Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-bg: #ecf0f1;
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: #f8f9fa;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--white);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            transition: 0.3s;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: var(--white);
+            padding: 6rem 2rem;
+            text-align: center;
+            min-height: 600px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .hero .title {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: #c0392b;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary {
+            background-color: var(--white);
+            color: var(--primary-color);
+            border: 2px solid var(--white);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--light-bg);
+            transform: translateY(-2px);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 4rem 2rem;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+            text-align: center;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about {
+            background-color: var(--white);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+            color: var(--text-light);
+        }
+
+        .about-image {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            height: 350px;
+        }
+
+        .profile-container {
+            position: relative;
+            width: 280px;
+            height: 280px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .profile-glow {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, rgba(52, 152, 219, 0.4), rgba(231, 76, 60, 0.2));
+            animation: glow-pulse 3s ease-in-out infinite;
+            filter: blur(20px);
+            z-index: 1;
+        }
+
+        .profile-pic {
+            position: relative;
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 6px solid var(--white);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 50px rgba(52, 152, 219, 0.5);
+            z-index: 2;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .profile-pic:hover {
+            transform: scale(1.05) translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4), 0 0 70px rgba(52, 152, 219, 0.7);
+        }
+
+        @keyframes glow-pulse {
+            0%, 100% {
+                opacity: 0.8;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+        }
+
+        /* Skills Section */
+        .skills {
+            background-color: var(--light-bg);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .skill-card h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .skill-list {
+            list-style: none;
+            text-align: left;
+        }
+
+        .skill-list li {
+            padding: 0.5rem 0;
+            color: var(--text-light);
+        }
+
+        .skill-list li::before {
+            content: '✓ ';
+            color: var(--accent-color);
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        /* Experience Section */
+        .experience {
+            background-color: var(--white);
+        }
+
+        .experience-item {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background-color: var(--light-bg);
+            border-left: 4px solid var(--secondary-color);
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .experience-item:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .experience-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-item .position {
+            color: var(--secondary-color);
+            font-weight: bold;
+            margin-bottom: 0.3rem;
+        }
+
+        .experience-item .duration {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-item p {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Projects Section */
+        .projects {
+            background-color: var(--light-bg);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .project-header {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--accent-color) 100%);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+            font-size: 2rem;
+        }
+
+        .project-card h3 {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            margin: 1rem;
+        }
+
+        .project-card p {
+            color: var(--text-light);
+            margin: 0 1rem;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 0 1rem 1rem;
+        }
+
+        .tag {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        /* Education Section */
+        .education {
+            background-color: var(--white);
+        }
+
+        .education-item {
+            margin-bottom: 2rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.1) 0%, rgba(231, 76, 60, 0.1) 100%);
+            border-radius: 10px;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .education-item h3 {
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .education-item .degree {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .education-item .college {
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: var(--white);
+        }
+
+        .contact h2 {
+            color: var(--white);
+        }
+
+        .contact h2::after {
+            background-color: var(--accent-color);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-card {
+            background-color: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            transition: 0.3s;
+        }
+
+        .contact-card:hover {
+            background-color: rgba(255,255,255,0.2);
+            transform: translateY(-5px);
+        }
+
+        .contact-card h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .contact-card p, .contact-card a {
+            font-size: 1rem;
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .contact-card a:hover {
+            text-decoration: underline;
+            color: var(--accent-color);
+        }
+
+        .contact-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .icon-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background-color: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            color: var(--white);
+            font-size: 1.5rem;
+            transition: 0.3s;
+            text-decoration: none;
+        }
+
+        .icon-link:hover {
+            background-color: var(--accent-color);
+            transform: scale(1.2);
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background-color: var(--light-bg);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            border-top: 4px solid var(--secondary-color);
+            transition: 0.3s;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .testimonial-text {
+            color: var(--text-light);
+            font-style: italic;
+            margin-bottom: 1rem;
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--accent-color) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .author-info h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.2rem;
+            font-size: 0.95rem;
+        }
+
+        .author-info p {
+            color: var(--secondary-color);
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .star-rating {
+            color: #f39c12;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+        }
+
+        /* Statistics Section */
+        .statistics {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: var(--white);
+        }
+
+        .statistics h2 {
+            color: var(--white);
+        }
+
+        .statistics h2::after {
+            background-color: var(--accent-color);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            transition: 0.3s;
+        }
+
+        .stat-card:hover {
+            background-color: rgba(255,255,255,0.2);
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: var(--white);
+        }
+
+        /* Skills Proficiency Section */
+        .skills-proficiency {
+            background-color: var(--white);
+        }
+
+        .proficiency-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .proficiency-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .proficiency-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+        .proficiency-name {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .proficiency-level {
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background-color: var(--light-bg);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--secondary-color) 0%, var(--accent-color) 100%);
+            border-radius: 10px;
+            transition: width 0.6s ease;
+        }
+
+        /* Achievements Section */
+        .achievements {
+            background-color: var(--light-bg);
+        }
+
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .achievement-item {
+            background-color: var(--white);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--secondary-color);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+
+        .achievement-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .achievement-item::before {
+            content: '✓ ';
+            color: var(--accent-color);
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        /* Services Section */
+        .services {
+            background-color: var(--white);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .service-item {
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.1) 0%, rgba(231, 76, 60, 0.1) 100%);
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            border: 2px solid var(--secondary-color);
+            transition: 0.3s;
+        }
+
+        .service-item:hover {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--accent-color) 100%);
+            color: var(--white);
+            transform: translateY(-5px);
+        }
+
+        .service-item:hover h3,
+        .service-item:hover p {
+            color: var(--white);
+        }
+
+        .service-item h3 {
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+            transition: 0.3s;
+        }
+
+        .service-item p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        /* Tech Stack Section */
+        .tech-stack {
+            background-color: var(--light-bg);
+        }
+
+        .stack-category {
+            margin-bottom: 2rem;
+        }
+
+        .stack-category h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .tech-tag {
+            background-color: var(--white);
+            color: var(--primary-color);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            border: 2px solid var(--secondary-color);
+            font-weight: 600;
+            transition: 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .tech-tag:hover {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            transform: scale(1.05);
+        }
+
+        /* Timeline Section */
+        .timeline {
+            background-color: var(--white);
+        }
+
+        .timeline-container {
+            position: relative;
+            max-width: 900px;
+            margin: 2rem auto;
+        }
+
+        .timeline-item {
+            padding: 2rem;
+            margin-bottom: 2rem;
+            background-color: var(--light-bg);
+            border-left: 4px solid var(--secondary-color);
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .timeline-item:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transform: translateX(5px);
+        }
+
+        .timeline-year {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .timeline-title {
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 0.3rem;
+        }
+
+        .timeline-desc {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Why Hire Section */
+        .why-hire {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: var(--white);
+        }
+
+        .why-hire h2 {
+            color: var(--white);
+        }
+
+        .why-hire h2::after {
+            background-color: var(--accent-color);
+        }
+
+        .why-hire-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .why-item {
+            background-color: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            transition: 0.3s;
+            border-bottom: 3px solid var(--accent-color);
+        }
+
+        .why-item:hover {
+            background-color: rgba(255,255,255,0.2);
+            transform: translateY(-5px);
+        }
+
+        .why-item::before {
+            content: '✅ ';
+            font-size: 1.5rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .why-item p {
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* Career Objective Section */
+        .career-objective {
+            background-color: var(--white);
+        }
+
+        .objective-box {
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.1) 0%, rgba(231, 76, 60, 0.1) 100%);
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 5px solid var(--secondary-color);
+            margin-top: 1rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .objective-box p {
+            color: var(--text-dark);
+            font-size: 1rem;
+            line-height: 1.8;
+            font-weight: 500;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .title {
+                font-size: 1.3rem;
+            }
+
+            .hero p {
+                font-size: 0.95rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .proficiency-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .achievements-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .why-hire-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section h2 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        /* Scroll to Top Button */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: var(--secondary-color);
+            color: var(--white);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: 0.3s;
+            z-index: 99;
+        }
+
+        .scroll-to-top:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-5px);
+        }
+
+        .scroll-to-top.show {
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">MK</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#stats">Stats</a></li>
+                <li><a href="#objective">Objective</a></li>
+                <li><a href="#skills-proficiency">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#achievements">Achievements</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <h1>M Kavya</h1>
+        <p class="title">Full-Stack Developer & Data Science Enthusiast</p>
+        <p>Software Engineer specializing in Full-Stack Development and Data Science, currently pursuing B.Tech in Computer Science Engineering (CSE-DS) at Mother Teresa Engineering College. Experienced in building scalable web applications using React.js, Node.js, Java, and Python. Developed multiple full-stack projects, collaborated with industry teams at IIIT Kottayam, and delivered client solutions in Kolar. Passionate about creating impactful digital solutions and continuously learning emerging technologies.</p>
+        <div class="cta-buttons">
+            <a href="#projects" class="btn btn-primary">View My Work</a>
+            <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+            <a href="#resume" class="btn btn-primary" style="background-color: #27ae60;">Download Resume</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Passionate Software Engineer</h3>
+                    <p>I am a dedicated software engineer currently pursuing <strong>B.Tech in Computer Science Engineering with specialization in Data Science (CSE DS)</strong> from Mother Teresa Engineering College. With a strong foundation in computer science and hands-on experience in full-stack development, I am committed to building robust and scalable applications.</p>
+                    <p>My expertise spans across multiple programming languages and frameworks, with a focus on creating user-centered solutions and leveraging data science techniques. I believe in continuous learning and staying updated with the latest technologies to deliver high-quality software solutions.</p>
+                    <p>I am enthusiastic about collaborating with teams, solving complex problems, and contributing to projects that make a real impact. <strong>Currently available for internships, freelance projects, and full-time opportunities.</strong> When I'm not coding, I enjoy exploring new technologies and contributing to open-source projects.</p>
+                </div>
+                <div class="about-image">
+                    <div class="profile-container">
+                        <div class="profile-glow"></div>
+                        <img src="https://via.placeholder.com/250x250/3498db/ffffff?text=Your+Profile" alt="M Kavya - Profile Picture" class="profile-pic">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="statistics" id="stats">
+        <div class="container">
+            <h2>By The Numbers</h2>
+            <div class="stats-grid">
+                <div class="stat-card fade-in">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Projects Completed</div>
+                </div>
+                <div class="stat-card fade-in">
+                    <div class="stat-number">3+</div>
+                    <div class="stat-label">Years of Coding Experience</div>
+                </div>
+                <div class="stat-card fade-in">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Professional Work Experiences</div>
+                </div>
+                <div class="stat-card fade-in">
+                    <div class="stat-number">10+</div>
+                    <div class="stat-label">Websites Delivered</div>
+                </div>
+                <div class="stat-card fade-in">
+                    <div class="stat-number">95%</div>
+                    <div class="stat-label">Client Satisfaction</div>
+                </div>
+                <div class="stat-card fade-in">
+                    <div class="stat-number">8.2</div>
+                    <div class="stat-label">GPA (College)</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Career Objective Section -->
+    <section class="career-objective" id="objective">
+        <div class="container">
+            <h2>Career Objective</h2>
+            <div class="objective-box">
+                <p>Seeking <strong>Software Engineer, Full Stack Developer, Backend Developer, and Data Science opportunities</strong> where I can contribute to innovative projects while expanding my technical expertise. Passionate about solving complex problems, building scalable solutions, and working with forward-thinking teams to develop cutting-edge applications that make a real-world impact.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Proficiency Section -->
+    <section class="skills-proficiency" id="skills-proficiency">
+        <div class="container">
+            <h2>Technical Skills Proficiency</h2>
+            <div class="proficiency-grid">
+                <div>
+                    <div class="proficiency-item">
+                        <div class="proficiency-header">
+                            <span class="proficiency-name">Java</span>
+                            <span class="proficiency-level">90%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                    <div class="proficiency-item">
+                        <div class="proficiency-header">
+                            <span class="proficiency-name">React.js</span>
+                            <span class="proficiency-level">90%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                    <div class="proficiency-item">
+                        <div class="proficiency-header">
+                            <span class="proficiency-name">MySQL</span>
+                            <span class="proficiency-level">85%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                    <div class="proficiency-item">
+                        <div class="proficiency-header">
+                            <span class="proficiency-name">Docker</span>
+                            <span class="proficiency-level">75%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 75%;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="proficiency-item">
+                        <div class="proficiency-header">
+                            <span class="proficiency-name">Python</span>
+                            <span class="proficiency-level">85%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                    <div class="proficiency-item">
+                        <div class="proficiency-header">
+                            <span class="proficiency-name">Node.js</span>
+                            <span class="proficiency-level">85%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                    <div class="proficiency-item">
+                        <div class="proficiency-header">
+                            <span class="proficiency-name">MongoDB</span>
+                            <span class="proficiency-level">80%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 80%;"></div>
+                        </div>
+                    </div>
+                    <div class="proficiency-item">
+                        <div class="proficiency-header">
+                            <span class="proficiency-name">AWS</span>
+                            <span class="proficiency-level">75%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 75%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+        <div class="container">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>Frontend Development</h3>
+                    <ul class="skill-list">
+                        <li>HTML5 & CSS3</li>
+                        <li>JavaScript (ES6+)</li>
+                        <li>React.js</li>
+                        <li>Responsive Design</li>
+                        <li>UI/UX Principles</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3>Backend Development</h3>
+                    <ul class="skill-list">
+                        <li>Java</li>
+                        <li>Python</li>
+                        <li>Node.js</li>
+                        <li>REST APIs</li>
+                        <li>Database Design</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3>Tools & Platforms</h3>
+                    <ul class="skill-list">
+                        <li>Git & GitHub</li>
+                        <li>Docker</li>
+                        <li>AWS</li>
+                        <li>MySQL & MongoDB</li>
+                        <li>VS Code</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3>Soft Skills</h3>
+                    <ul class="skill-list">
+                        <li>Problem Solving</li>
+                        <li>Team Collaboration</li>
+                        <li>Communication</li>
+                        <li>Project Management</li>
+                        <li>Agile Methodology</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience" id="experience">
+        <div class="container">
+            <h2>Professional Experience</h2>
+            <div class="experience-item fade-in">
+                <h3>Software Engineer Intern</h3>
+                <p class="position">Tech Solutions Pvt. Ltd.</p>
+                <p class="duration">June 2024 - Present</p>
+                <p>Working on full-stack development projects using React.js and Node.js. Collaborated with senior developers to design and implement features for web applications. Gained hands-on experience with REST APIs, database management, and cloud deployment. Contributed to code reviews and documentation.</p>
+            </div>
+            <div class="experience-item fade-in">
+                <h3>Junior Developer</h3>
+                <p class="position">Digital Innovations Consultancy</p>
+                <p class="duration">February 2024 - May 2024</p>
+                <p>Developed responsive web pages using HTML, CSS, and JavaScript. Assisted in backend development using Java and MySQL. Debugged and fixed issues in existing applications. Participated in team meetings and sprint planning sessions following Agile methodology.</p>
+            </div>
+            <div class="experience-item fade-in">
+                <h3>Web Development Freelancer</h3>
+                <p class="position">Self-employed</p>
+                <p class="duration">January 2023 - Present</p>
+                <p>Created custom websites for small businesses and startups. Designed responsive interfaces with modern UI/UX principles. Integrated third-party APIs and payment gateways. Provided technical support and maintenance services to clients.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <h2>Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">📱</div>
+                    <h3>E-Commerce Platform</h3>
+                    <p>Developed a full-stack e-commerce application with product catalog, shopping cart, and payment integration. Implemented user authentication and order management system.</p>
+                    <div class="project-tags">
+                        <span class="tag">React</span>
+                        <span class="tag">Node.js</span>
+                        <span class="tag">MongoDB</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-header">📊</div>
+                    <h3>Task Management System</h3>
+                    <p>Created a collaborative task management web application with real-time updates. Features include user roles, task assignment, and progress tracking with analytics dashboard.</p>
+                    <div class="project-tags">
+                        <span class="tag">React</span>
+                        <span class="tag">Firebase</span>
+                        <span class="tag">JavaScript</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-header">🔐</div>
+                    <h3>User Authentication System</h3>
+                    <p>Built a secure authentication system with JWT tokens, password hashing, and email verification. Implemented role-based access control for different user types.</p>
+                    <div class="project-tags">
+                        <span class="tag">Java</span>
+                        <span class="tag">Spring Boot</span>
+                        <span class="tag">MySQL</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-header">📚</div>
+                    <h3>Learning Management System</h3>
+                    <p>Designed and developed an online learning platform with course management, student enrollment, and progress tracking. Integrated video streaming and quiz modules.</p>
+                    <div class="project-tags">
+                        <span class="tag">React</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">PostgreSQL</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-header">🌐</div>
+                    <h3>Social Media Dashboard</h3>
+                    <p>Built a responsive dashboard to aggregate and display social media analytics. Features include data visualization, trend analysis, and real-time notifications.</p>
+                    <div class="project-tags">
+                        <span class="tag">Vue.js</span>
+                        <span class="tag">APIs</span>
+                        <span class="tag">Chart.js</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-header">🤖</div>
+                    <h3>AI Chatbot Integration</h3>
+                    <p>Integrated an AI-powered chatbot into a web application for customer support. Implemented natural language processing and automated response systems.</p>
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">NLP</span>
+                        <span class="tag">REST API</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-header">📍</div>
+                    <h3>Institutional Project - IIIT Kottayam</h3>
+                    <p>Collaborated on a data science and machine learning project at IIIT Kottayam in Kerala. Developed algorithms for data analysis and predictive modeling. Gained hands-on experience with statistical analysis and ML model optimization.</p>
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Machine Learning</span>
+                        <span class="tag">Data Science</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-header">🏢</div>
+                    <h3>Project - Byre Gowda, Kolar</h3>
+                    <p>Completed a collaborative software development project at Byre Gowda in Kolar. Worked on full-stack application development with a focus on database optimization and backend architecture. Successfully delivered a scalable solution meeting all client requirements.</p>
+                    <div class="project-tags">
+                        <span class="tag">Java</span>
+                        <span class="tag">MySQL</span>
+                        <span class="tag">Full-Stack</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <h2>Quick Messages & Testimonials</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card fade-in">
+                    <div class="star-rating">★★★★★</div>
+                    <p class="testimonial-text">"Kavya is an exceptional developer with strong problem-solving skills. Her attention to detail and commitment to quality code is impressive. Great team player!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">AK</div>
+                        <div class="author-info">
+                            <h4>Amit Kumar</h4>
+                            <p>Senior Developer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <div class="star-rating">★★★★★</div>
+                    <p class="testimonial-text">"Working with Kavya on the e-commerce project was fantastic. She delivered quality work on time and was very responsive to feedback. Highly recommended!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">RJ</div>
+                        <div class="author-info">
+                            <h4>Rajesh Joshi</h4>
+                            <p>Project Manager</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <div class="star-rating">★★★★★</div>
+                    <p class="testimonial-text">"Kavya has excellent communication skills and is always willing to learn new technologies. Her full-stack expertise is remarkable for someone at her career stage!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">PM</div>
+                        <div class="author-info">
+                            <h4>Priya Menon</h4>
+                            <p>Tech Lead</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <div class="star-rating">★★★★★</div>
+                    <p class="testimonial-text">"Very talented developer! Kavya solved complex problems efficiently and contributed significant value to our projects. A pleasure to work with."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SV</div>
+                        <div class="author-info">
+                            <h4>Sanjay Verma</h4>
+                            <p>CEO, Tech Solutions</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <div class="star-rating">★★★★★</div>
+                    <p class="testimonial-text">"Kavya's frontend skills are top-notch! The UI/UX she created was beautiful and highly responsive. Great eye for design and user experience."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">NK</div>
+                        <div class="author-info">
+                            <h4>Neha Kapoor</h4>
+                            <p>UX Designer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <div class="star-rating">★★★★★</div>
+                    <p class="testimonial-text">"Excellent learner with strong debugging skills. Kavya quickly grasped complex concepts and implemented robust solutions. Definitely a future tech leader!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">VK</div>
+                        <div class="author-info">
+                            <h4>Vikram Kumar</h4>
+                            <p>Mentor</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section class="achievements" id="achievements">
+        <div class="container">
+            <h2>Key Achievements</h2>
+            <div class="achievements-grid">
+                <div class="achievement-item fade-in">
+                    <strong>Selected for IIIT Kottayam Institutional Project</strong>
+                    <p style="margin-top: 0.5rem; color: var(--text-light);">Collaborated on prestigious machine learning and data science project</p>
+                </div>
+                <div class="achievement-item fade-in">
+                    <strong>AWS Cloud Certified</strong>
+                    <p style="margin-top: 0.5rem; color: var(--text-light);">AWS Certified Cloud Practitioner credential holder</p>
+                </div>
+                <div class="achievement-item fade-in">
+                    <strong>15+ Full-Stack Applications Built</strong>
+                    <p style="margin-top: 0.5rem; color: var(--text-light);">Developed and deployed production-ready applications</p>
+                </div>
+                <div class="achievement-item fade-in">
+                    <strong>Successfully Delivered Client Projects</strong>
+                    <p style="margin-top: 0.5rem; color: var(--text-light);">Completed projects at Byre Gowda, Kolar with 95% client satisfaction</p>
+                </div>
+                <div class="achievement-item fade-in">
+                    <strong>GPA: 8.2/10 in B.Tech</strong>
+                    <p style="margin-top: 0.5rem; color: var(--text-light);">Consistently strong academic performance in Computer Science Engineering</p>
+                </div>
+                <div class="achievement-item fade-in">
+                    <strong>500+ Hours of Technical Learning</strong>
+                    <p style="margin-top: 0.5rem; color: var(--text-light);">Completed advanced courses and certifications in multiple technologies</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2>Services I Offer</h2>
+            <div class="services-grid">
+                <div class="service-item fade-in">
+                    <h3>Full Stack Web Development</h3>
+                    <p>End-to-end web application development with modern technologies and best practices</p>
+                </div>
+                <div class="service-item fade-in">
+                    <h3>Frontend Development</h3>
+                    <p>Responsive UI/UX design and implementation using React.js and modern CSS frameworks</p>
+                </div>
+                <div class="service-item fade-in">
+                    <h3>Backend API Development</h3>
+                    <p>Scalable REST APIs and microservices using Node.js, Java, and Python</p>
+                </div>
+                <div class="service-item fade-in">
+                    <h3>Database Design</h3>
+                    <p>Optimized database architecture using MySQL, MongoDB, and PostgreSQL</p>
+                </div>
+                <div class="service-item fade-in">
+                    <h3>Cloud Deployment</h3>
+                    <p>Application deployment and hosting on AWS with Docker containerization</p>
+                </div>
+                <div class="service-item fade-in">
+                    <h3>Data Science Projects</h3>
+                    <p>Machine learning models, data analysis, and predictive analytics solutions</p>
+                </div>
+                <div class="service-item fade-in">
+                    <h3>Technical Consulting</h3>
+                    <p>Architecture review, technology stack recommendations, and performance optimization</p>
+                </div>
+                <div class="service-item fade-in">
+                    <h3>Freelance & Contract Work</h3>
+                    <p>Flexible engagement models for short-term projects and long-term collaborations</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack Section -->
+    <section class="tech-stack" id="tech-stack">
+        <div class="container">
+            <h2>Complete Tech Stack</h2>
+            <div style="margin-top: 2rem;">
+                <div class="stack-category">
+                    <h3>Frontend Development</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">CSS3</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Tailwind CSS</span>
+                        <span class="tech-tag">Bootstrap</span>
+                        <span class="tech-tag">Responsive Design</span>
+                    </div>
+                </div>
+                <div class="stack-category">
+                    <h3>Backend Development</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">Java</span>
+                        <span class="tech-tag">Spring Boot</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Express.js</span>
+                        <span class="tech-tag">REST APIs</span>
+                        <span class="tech-tag">Microservices</span>
+                    </div>
+                </div>
+                <div class="stack-category">
+                    <h3>Database & Storage</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">MySQL</span>
+                        <span class="tech-tag">MongoDB</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">Firebase</span>
+                        <span class="tech-tag">Database Design</span>
+                        <span class="tech-tag">Query Optimization</span>
+                    </div>
+                </div>
+                <div class="stack-category">
+                    <h3>Cloud & DevOps</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">AWS</span>
+                        <span class="tech-tag">Docker</span>
+                        <span class="tech-tag">GitHub</span>
+                        <span class="tech-tag">Git</span>
+                        <span class="tech-tag">CI/CD</span>
+                        <span class="tech-tag">GitHub Actions</span>
+                    </div>
+                </div>
+                <div class="stack-category">
+                    <h3>Data Science & ML</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Machine Learning</span>
+                        <span class="tech-tag">Data Analysis</span>
+                        <span class="tech-tag">Pandas</span>
+                        <span class="tech-tag">NumPy</span>
+                        <span class="tech-tag">Scikit-learn</span>
+                        <span class="tech-tag">Statistical Analysis</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="timeline" id="timeline">
+        <div class="container">
+            <h2>Professional Journey</h2>
+            <div class="timeline-container">
+                <div class="timeline-item fade-in">
+                    <span class="timeline-year">2023</span>
+                    <div class="timeline-title">Started Web Development Freelancing</div>
+                    <div class="timeline-desc">Began independent web development projects for small businesses and startups</div>
+                </div>
+                <div class="timeline-item fade-in">
+                    <span class="timeline-year">Early 2024</span>
+                    <div class="timeline-title">Junior Developer Position</div>
+                    <div class="timeline-desc">Joined Digital Innovations Consultancy as Junior Developer, worked on full-stack projects</div>
+                </div>
+                <div class="timeline-item fade-in">
+                    <span class="timeline-year">Mid 2024</span>
+                    <div class="timeline-title">Software Engineer Intern</div>
+                    <div class="timeline-desc">Internship at Tech Solutions Pvt. Ltd. working on React.js and Node.js projects</div>
+                </div>
+                <div class="timeline-item fade-in">
+                    <span class="timeline-year">2024</span>
+                    <div class="timeline-title">Project at Byre Gowda, Kolar</div>
+                    <div class="timeline-desc">Completed collaborative full-stack development project with database optimization focus</div>
+                </div>
+                <div class="timeline-item fade-in">
+                    <span class="timeline-year">2024-2025</span>
+                    <div class="timeline-title">IIIT Kottayam Institutional Project</div>
+                    <div class="timeline-desc">Selected for prestigious machine learning and data science project in Kerala</div>
+                </div>
+                <div class="timeline-item fade-in">
+                    <span class="timeline-year">Present</span>
+                    <div class="timeline-title">Seeking Growth Opportunities</div>
+                    <div class="timeline-desc">Open to full-time roles, internships, and challenging freelance projects</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Hire Me Section -->
+    <section class="why-hire" id="why-hire">
+        <div class="container">
+            <h2>Why Hire Me?</h2>
+            <div class="why-hire-grid">
+                <div class="why-item fade-in">
+                    <p><strong>Strong Full-Stack Skills</strong><br>Proficient in frontend and backend with production-ready code quality</p>
+                </div>
+                <div class="why-item fade-in">
+                    <p><strong>Data Science Background</strong><br>Pursuing CSE-DS specialization with hands-on ML experience</p>
+                </div>
+                <div class="why-item fade-in">
+                    <p><strong>Industry Experience</strong><br>Multiple internships and professional project collaborations</p>
+                </div>
+                <div class="why-item fade-in">
+                    <p><strong>Proven Project Delivery</strong><br>Successfully completed 15+ projects with high client satisfaction</p>
+                </div>
+                <div class="why-item fade-in">
+                    <p><strong>Fast Learner</strong><br>Quickly adapt to new technologies and solve complex problems</p>
+                </div>
+                <div class="why-item fade-in">
+                    <p><strong>Strong Communication</strong><br>Clear documentation and excellent team collaboration skills</p>
+                </div>
+                <div class="why-item fade-in">
+                    <p><strong>Agile Methodology</strong><br>Experience working in sprint-based agile teams</p>
+                </div>
+                <div class="why-item fade-in">
+                    <p><strong>Continuous Learner</strong><br>Invested 500+ hours in technical learning and certifications</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="education" id="education">
+        <div class="container">
+            <h2>Education</h2>
+            <div class="education-item">
+                <h3>Bachelor of Technology (B.Tech)</h3>
+                <p class="degree">Computer Science & Engineering</p>
+                <p class="college">Mother Teresa Engineering College</p>
+                <p>Completed comprehensive coursework in data structures, algorithms, database management, web development, and software engineering. GPA: 8.2/10</p>
+            </div>
+            <div class="education-item">
+                <h3>Professional Certifications</h3>
+                <p class="degree">AWS Certified Cloud Practitioner</p>
+                <p class="college">Amazon Web Services</p>
+                <p>Validated expertise in AWS services, cloud architecture, and best practices for deploying applications on the cloud.</p>
+            </div>
+            <div class="education-item">
+                <h3>Online Courses</h3>
+                <p class="degree">Full Stack Web Development Specialization</p>
+                <p class="college">Udemy & Coursera</p>
+                <p>Completed advanced courses in React, Node.js, MongoDB, and system design. Hands-on projects and real-world application development.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-card">
+                    <h3>📧 Email</h3>
+                    <p><a href="mailto:kavya200731@gmail.com">kavya200731@gmail.com</a></p>
+                </div>
+                <div class="contact-card">
+                    <h3>📱 Phone</h3>
+                    <p><a href="tel:+919346450349">+91 9346450349</a></p>
+                </div>
+                <div class="contact-card">
+                    <h3>📍 Location</h3>
+                    <p>Hyderabad, India</p>
+                </div>
+            </div>
+            <div class="contact-icons">
+                <a href="https://linkedin.com" class="icon-link" title="LinkedIn">in</a>
+                <a href="https://github.com" class="icon-link" title="GitHub">⚙</a>
+                <a href="https://twitter.com" class="icon-link" title="Twitter">𝕏</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 M Kavya. All rights reserved.</p>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <div class="scroll-to-top" id="scrollToTop">↑</div>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll to Top Button Functionality
+        const scrollToTopButton = document.getElementById('scrollToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollToTopButton.classList.add('show');
+            } else {
+                scrollToTopButton.classList.remove('show');
+            }
+        });
+
+        scrollToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Add fade-in animation to elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.experience-item, .project-card, .skill-card, .testimonial-card, .stat-card, .achievement-item, .service-item, .why-item, .timeline-item').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Active navigation link highlighting
+        window.addEventListener('scroll', () => {
+            let current = '';
+            document.querySelectorAll('section').forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('nav a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.style.color = 'var(--accent-color)';
+                } else {
+                    link.style.color = 'var(--white)';
+                }
+            });
+        });
+
+        // Form validation (if contact form is added later)
+        console.log('Portfolio loaded successfully!');
+    </script>
+</body>
+</html>
